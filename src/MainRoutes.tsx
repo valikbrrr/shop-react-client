@@ -1,6 +1,6 @@
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { Home } from "./components/screens/home/Home";
-import { Auth } from "./components/screens/auth/Auth";
+import Auth from "./components/screens/auth/Auth";
 
 export const MainRoutes = () => {
   return (
