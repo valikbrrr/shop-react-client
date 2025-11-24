@@ -3,6 +3,7 @@ import Loader from "@/components/ui/Loader";
 import type { IAuthFormData } from "@/types/auth.interface";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
+import AuthFields from "./AuthFields";
 
 const Auth = () => {
   const [isReg, setIsReg] = useState(false);
@@ -28,7 +29,8 @@ const Auth = () => {
         ) : (
           <form onSubmit={handleSubmit(onSubmit)}>
             {/* Поля формы */}
-            <div className="mb-4">
+            <AuthFields control={control}/>
+            {/* <div className="mb-4">
               <label className="block mb-1 text-gray-600">Email</label>
               <input
                 type="email"
@@ -45,7 +47,7 @@ const Auth = () => {
                 className="border border-gray-300 p-2 w-full rounded"
                 required
               />
-            </div>
+            </div> */}
             <Button type="submit" className="w-full">
               {isReg ? "Sign Up" : "Login"}
             </Button>
