@@ -28,26 +28,7 @@ const Auth = () => {
           <Loader />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)}>
-            {/* Поля формы */}
             <AuthFields control={control}/>
-            {/* <div className="mb-4">
-              <label className="block mb-1 text-gray-600">Email</label>
-              <input
-                type="email"
-                {...control.register("email")}
-                className="border border-gray-300 p-2 w-full rounded"
-                required
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block mb-1 text-gray-600">Password</label>
-              <input
-                type="password"
-                {...control.register("password")}
-                className="border border-gray-300 p-2 w-full rounded"
-                required
-              />
-            </div> */}
             <Button type="submit" className="w-full">
               {isReg ? "Sign Up" : "Login"}
             </Button>
