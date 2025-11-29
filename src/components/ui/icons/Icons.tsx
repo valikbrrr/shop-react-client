@@ -1,14 +1,20 @@
 // Обновить barrel export
-import { FiHome, FiUser, FiSettings, FiBell, FiMail } from "react-icons/fi";
+import {
+  FiHeart,
+  FiHome,
+  FiSearch,
+  FiShoppingBag,
+  FiUser,
+} from "react-icons/fi";
 import type { IconType } from "react-icons";
-import type { TypeFeatherIconNames } from "@/types/IconsType";
+import type { TypeFeatherIconNames } from "@/types/iconsType";
 
 const iconMap: Record<TypeFeatherIconNames, IconType> = {
   home: FiHome,
+  heart: FiHeart,
+  search: FiSearch,
+  shopingBag: FiShoppingBag,
   user: FiUser,
-  settings: FiSettings,
-  bell: FiBell,
-  mail: FiMail,
 };
 
 export interface IconProps {
