@@ -1,4 +1,3 @@
-// Обновить barrel export
 import {
   FiHeart,
   FiHome,
@@ -13,7 +12,7 @@ const iconMap: Record<TypeFeatherIconNames, IconType> = {
   home: FiHome,
   heart: FiHeart,
   search: FiSearch,
-  shopingBag: FiShoppingBag,
+  shoppingBag: FiShoppingBag,
   user: FiUser,
 };
 

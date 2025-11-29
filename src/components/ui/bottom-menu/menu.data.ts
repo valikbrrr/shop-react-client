@@ -1,6 +1,6 @@
 import type { IMenuItem } from "./menu.interface";
 
-export const menuItems:IMenuItem[] = [
+export const menuItems: IMenuItem[] = [
   {
     icon: 'home',
     path: 'Home',
@@ -17,7 +17,7 @@ export const menuItems:IMenuItem[] = [
     title: "Поиск"
   }, 
   {
-    icon: 'shopingBag',
+    icon: 'shoppingBag',
     path: 'Explorer',
     title: "Каталог"
   }, 
@@ -26,4 +26,4 @@ export const menuItems:IMenuItem[] = [
     path: 'Profile',
     title: "Профиль"
   }, 
-]
+];

@@ -1,4 +1,3 @@
-// MainRoutes.tsx
 import {
   Route,
   BrowserRouter as Router,
@@ -8,7 +7,7 @@ import {
 import { useAuth } from "@/hooks/useAuth";
 import ProtectedRoute from "./navigation/ProtectedRoute";
 import { routes } from "./navigation/routes.const";
-import MainLayout from "@/components/layouts/MainLayout/MainLayout"; // ← ДОБАВЬТЕ ЭТОТ ИМПОРТ
+import MainLayout from "@/components/layouts/MainLayout/MainLayout"; 
 
 export const MainRoutes = () => {
   const { user } = useAuth();
@@ -28,7 +27,6 @@ export const MainRoutes = () => {
                   <route.component />
                 )
               ) : (
-                // ОБЕРНИТЕ В MainLayout
                 <ProtectedRoute>
                   <MainLayout>
                     <route.component />
