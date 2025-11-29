@@ -1,6 +1,6 @@
 export type TypeFeatherIconNames =
   | "home"
-  | "user"
-  | "settings"
-  | "bell"
-  | "mail";
+  | "heart"
+  | "search"
+  | "shoping-bag"
+  | "user";

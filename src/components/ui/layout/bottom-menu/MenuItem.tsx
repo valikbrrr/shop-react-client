@@ -1,8 +1,14 @@
-import React from 'react'
+import type { IMenuItem } from './menu.interface'
 
-const MenuItem = () => {
+interface MenuItemProps {
+  item: IMenuItem 
+}
+
+const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
   return (
-    <div>MenuItem</div>
+    <div className="menu-item">
+      <span>{item.title}</span>
+    </div>
   )
 }
 

@@ -1,36 +1,40 @@
-// MainRoutes.tsx
 import {
   Route,
   BrowserRouter as Router,
   Routes,
   Navigate,
 } from "react-router-dom";
-import { Home } from "./components/screens/home/Home";
-import Auth from "./components/screens/auth/Auth";
 import { useAuth } from "@/hooks/useAuth";
 import ProtectedRoute from "./navigation/ProtectedRoute";
-
+import { routes } from "./navigation/routes.const";
 export const MainRoutes = () => {
   const { user } = useAuth();
 
   return (
     <Router>
       <Routes>
-        {/* Защищенный маршрут - только для авторизованных */}
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute>
-              <Home />
-            </ProtectedRoute>
-          }
-        />
-
-        {/* Маршрут авторизации - редирект на главную если уже авторизован */}
-        <Route
-          path="/auth"
-          element={user ? <Navigate to="/" replace /> : <Auth />}
-        />
+        {/* Автоматически генерируем маршруты из конфигурации */}
+        {routes.map((route) => (
+          <Route
+            key={route.name}
+            path={route.path}
+            element={
+              route.name === "Auth" ? (
+                // Для страницы авторизации - особый случай
+                user ? (
+                  <Navigate to="/" replace />
+                ) : (
+                  <route.component />
+                )
+              ) : (
+                // Для остальных страниц - защищаем
+                <ProtectedRoute>
+                  <route.component />
+                </ProtectedRoute>
+              )
+            }
+          />
+        ))}
 
         {/* Fallback для несуществующих маршрутов */}
         <Route path="*" element={<Navigate to="/" replace />} />
