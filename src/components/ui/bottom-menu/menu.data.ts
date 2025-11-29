@@ -17,7 +17,7 @@ export const menuItems:IMenuItem[] = [
     title: "Поиск"
   }, 
   {
-    icon: 'shoping-bag',
+    icon: 'shopingBag',
     path: 'Explorer',
     title: "Каталог"
   }, 

@@ -1,3 +1,4 @@
+// MainRoutes.tsx
 import {
   Route,
   BrowserRouter as Router,
@@ -7,36 +8,37 @@ import {
 import { useAuth } from "@/hooks/useAuth";
 import ProtectedRoute from "./navigation/ProtectedRoute";
 import { routes } from "./navigation/routes.const";
+import MainLayout from "@/components/layouts/MainLayout/MainLayout"; // ← ДОБАВЬТЕ ЭТОТ ИМПОРТ
+
 export const MainRoutes = () => {
   const { user } = useAuth();
 
   return (
     <Router>
       <Routes>
-        {/* Автоматически генерируем маршруты из конфигурации */}
         {routes.map((route) => (
           <Route
             key={route.name}
             path={route.path}
             element={
               route.name === "Auth" ? (
-                // Для страницы авторизации - особый случай
                 user ? (
                   <Navigate to="/" replace />
                 ) : (
                   <route.component />
                 )
               ) : (
-                // Для остальных страниц - защищаем
+                // ОБЕРНИТЕ В MainLayout
                 <ProtectedRoute>
-                  <route.component />
+                  <MainLayout>
+                    <route.component />
+                  </MainLayout>
                 </ProtectedRoute>
               )
             }
           />
         ))}
 
-        {/* Fallback для несуществующих маршрутов */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
