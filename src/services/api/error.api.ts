@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const errorCath = (error: any): string => {
+export const errorCatсh = (error: any): string => {
   const message = error?.response?.data?.message;
 
   return message

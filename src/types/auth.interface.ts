@@ -1,3 +1,21 @@
 import type { IUser } from "./user.interface";
 
-export type IAuthFormData = Pick<IUser, 'email' | 'password'>
+export type IAuthFormData = Pick<IUser, "email" | "password">;
+
+export enum EnumSecureStore {
+  ACCESS_TOKEN = "accessToken",
+  REFRESH_TOKEN = "refreshToken",
+}
+
+export enum EnumAsyncStorage {
+  USER = "user",
+}
+
+export interface ITokens {
+  accessToken: string;
+  refreshToken: string;
+}
+
+export interface IAuthResponse extends ITokens {
+  user: IUser;
+}
