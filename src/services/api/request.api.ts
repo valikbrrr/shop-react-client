@@ -1,17 +1,29 @@
-import { AxiosError, type AxiosResponse } from "axios";
+import { type AxiosRequestConfig, type AxiosError } from "axios";
 import { toastAPI } from "@/components/ui/toast/toast-api";
-import { errorCatсh } from "./error.api";
+import { errorCatch } from "./error.api";
+import instance from "./interceptors.api";
 
 export const request = async <T>(
-  fn: Promise<AxiosResponse<T>>
-): Promise<T> => { 
+  config: AxiosRequestConfig,
+  options?: {
+    showErrorToast?: boolean;
+    errorMessage?: string;
+  }
+): Promise<T> => {
+  const { showErrorToast = true, errorMessage } = options || {};
+  
   try {
-    const response = await fn;
+    const response = await instance(config); 
     return response.data;
   } catch (error) {
-    const message = errorCatсh(error as AxiosError); 
+    const message = errorCatch(error as AxiosError);
     
-    toastAPI.error(`Ошибка запроса: ${message}`);
+    if (showErrorToast) {
+      const toastMessage = errorMessage 
+        ? `${errorMessage}: ${message}`
+        : `Ошибка запроса: ${message}`;
+      toastAPI.error(toastMessage);
+    }
     
     throw error;
   }

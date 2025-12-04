@@ -2,12 +2,9 @@ import type { IUser } from "./user.interface";
 
 export type IAuthFormData = Pick<IUser, "email" | "password">;
 
-export enum EnumSecureStore {
+export enum EnumStorage {
   ACCESS_TOKEN = "accessToken",
   REFRESH_TOKEN = "refreshToken",
-}
-
-export enum EnumAsyncStorage {
   USER = "user",
 }
 

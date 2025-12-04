@@ -1,24 +1,15 @@
-import type { IUser } from "@/types/user.interface";
-
-export interface ITokens {
-  accessToken: string;
-  refreshToken: string;
-}
-
-export interface IAuthResponse {
-  user: IUser; // Теперь точно IUser, а не any
-  accessToken: string;
-  refreshToken: string;
-}
-
-export enum EnumStorage {
-  ACCESS_TOKEN = "accessToken",
-  REFRESH_TOKEN = "refreshToken",
-  USER = "user",
-}
+import {
+  type IAuthResponse,
+  type ITokens,
+  EnumStorage,
+} from "@/types/auth.interface";
 
 export const getAccessToken = (): string | null => {
   return localStorage.getItem(EnumStorage.ACCESS_TOKEN);
+};
+
+export const getRefreshToken = (): string | null => {
+  return localStorage.getItem(EnumStorage.REFRESH_TOKEN);
 };
 
 export const saveTokenStorage = (data: ITokens): void => {
@@ -32,8 +23,7 @@ export const deleteTokenStorage = (): void => {
   localStorage.removeItem(EnumStorage.USER);
 };
 
-// Правильно: возвращаем IUser или null
-export const getUserFromStorage = (): IUser | null => {
+export const getUserFromStorage = (): IAuthResponse["user"] | null => {
   try {
     const user = localStorage.getItem(EnumStorage.USER);
     return user ? JSON.parse(user) : null;
