@@ -1,4 +1,4 @@
-import { EnumStorage, type IAuthResponse } from "@/types/auth.interface";
+import { type IAuthResponse } from "@/types/auth.interface";
 import { request } from "../api/request.api";
 import { getAuthUrl } from "@/config/api.config";
 import { deleteTokenStorage, saveToStorage } from "./auth.helper";

@@ -1,4 +1,14 @@
 import { createContext } from "react";
-import type { IContext } from "./auth-provider.interface";
+import type { IUser } from "@/types/user.interface";
 
-export const AuthContext = createContext<IContext>({} as IContext);
+export interface IAuthContext {
+  user: IUser | null;
+  setUser: (user: IUser | null) => void;
+  isLoading: boolean;
+}
+
+export const AuthContext = createContext<IAuthContext>({
+  user: null,
+  setUser: () => {},
+  isLoading: true,
+});

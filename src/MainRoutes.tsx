@@ -7,10 +7,15 @@ import {
 import { useAuth } from "@/hooks/useAuth";
 import ProtectedRoute from "./navigation/ProtectedRoute";
 import { routes } from "./navigation/routes.const";
-import MainLayout from "@/components/layouts/MainLayout/MainLayout"; 
+import MainLayout from "@/components/layouts/MainLayout/MainLayout";
+import Loader from "./components/ui/Loader";
 
 export const MainRoutes = () => {
-  const { user } = useAuth();
+  const { user, isLoading } = useAuth();
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <Router>

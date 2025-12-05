@@ -35,7 +35,7 @@ instance.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    if ((error.response?.status === 401 || errorCatch(error) === 'jwt expired' || errorCatch(error) === 'jwt must be provided') && !originalRequest._retry) {
       console.error("JWT expired or invalid");
       originalRequest._retry = true;
 
