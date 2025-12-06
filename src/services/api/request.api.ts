@@ -16,6 +16,7 @@ export const request = async <T>(
     const response = await instance(config); 
     return response.data;
   } catch (error) {
+    console.log(error);
     const message = errorCatch(error as AxiosError);
     
     if (showErrorToast) {

@@ -1,18 +1,18 @@
-import { 
-  useState, 
-  type FC, 
-  type PropsWithChildren, 
+import {
+  useState,
+  type FC,
+  type PropsWithChildren,
   useEffect,
-  useCallback
+  useCallback,
 } from "react";
 import type { TypeUserState } from "./auth-provider.interface";
 import { AuthContext } from "./auth-context";
 import type { IUser } from "@/types/user.interface";
-import { 
-  getRefreshToken, 
+import {
+  getRefreshToken,
   getUserFromStorage,
   deleteTokenStorage,
-  getAccessToken
+  getAccessToken,
 } from "@/services/auth/auth.helper";
 import { getNewTokens } from "@/services/api/helper.api";
 import { errorCatch } from "@/services/api/error.api";
@@ -26,14 +26,14 @@ const AuthProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
   const restoreUser = useCallback((): IUser | null => {
     const refreshToken = getRefreshToken();
     const storedUser = getUserFromStorage();
-    
+
     if (refreshToken && storedUser) {
       return storedUser;
     }
     return null;
   }, []);
 
-  // Функция для проверки и обновления токенов 
+  // Функция для проверки и обновления токенов
   const checkAndRefreshTokens = useCallback(async (): Promise<boolean> => {
     const accessToken = getAccessToken();
     const refreshToken = getRefreshToken();
@@ -78,11 +78,11 @@ const AuthProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
   useEffect(() => {
     const initAuth = async () => {
       setIsLoading(true);
-      
+
       try {
         // Сначала проверяем и обновляем токены если нужно
         await checkAndRefreshTokens();
-        
+
         // Затем восстанавливаем пользователя из хранилища
         const restoredUser = restoreUser();
         if (restoredUser) {
@@ -108,7 +108,7 @@ const AuthProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
       if (e.key === EnumStorage.REFRESH_TOKEN && !e.newValue && user) {
         setUser(null);
       }
-      
+
       // Если обновили пользователя в другой вкладке
       if (e.key === EnumStorage.USER) {
         if (e.newValue) {
@@ -125,10 +125,10 @@ const AuthProvider: FC<PropsWithChildren<unknown>> = ({ children }) => {
       }
     };
 
-    window.addEventListener('storage', handleStorageChange);
-    
+    window.addEventListener("storage", handleStorageChange);
+
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener("storage", handleStorageChange);
     };
   }, [user]);
 

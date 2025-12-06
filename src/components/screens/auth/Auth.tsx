@@ -1,22 +1,34 @@
 import Button from "@/components/ui/button/Button";
 import Loader from "@/components/ui/Loader";
+import { useAuth } from "@/hooks/useAuth";
+import { AuthService } from "@/services/auth/auth.service";
 import type { IAuthFormData } from "@/types/auth.interface";
+import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import AuthFields from "./AuthFields";
 
 const Auth = () => {
   const [isReg, setIsReg] = useState(false);
+  const { setUser } = useAuth();
 
   const { handleSubmit, reset, control } = useForm<IAuthFormData>({
     mode: "onChange",
   });
 
+  const authMutation = useMutation({
+    mutationFn: (data: IAuthFormData) =>
+      AuthService.main(isReg ? "reg" : "login", data.email, data.password),
+    onSuccess(data) {
+      reset();
+      setUser(data.user);
+    },
+  });
+
   const onSubmit: SubmitHandler<IAuthFormData> = (data) => {
     console.log(data);
+    authMutation.mutate(data);
   };
-
-  const isLoading = false;
 
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
@@ -24,12 +36,12 @@ const Auth = () => {
         <p className="text-center text-black text-3xl font-medium mb-8">
           {isReg ? "Sign Up" : "Login"}
         </p>
-        {isLoading ? (
+        {authMutation.isPending ? (
           <Loader />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)}>
-            <AuthFields control={control}/>
-            <Button type="submit" className="w-full">
+            <AuthFields control={control} />
+            <Button type="submit" className="w-full" disabled={authMutation.isPending}>
               {isReg ? "Sign Up" : "Login"}
             </Button>
 
@@ -41,6 +53,7 @@ const Auth = () => {
                 type="button"
                 onClick={() => setIsReg(!isReg)}
                 className="text-[#47AA52]"
+                disabled={authMutation.isPending}
               >
                 {isReg ? "Login" : "Sign Up"}
               </button>
