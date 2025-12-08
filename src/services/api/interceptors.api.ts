@@ -1,10 +1,10 @@
-import { SERVER_URL } from "@/config/api.config";
+import { API_URL } from "@/config/api.config";
 import axios from "axios";
 import { deleteTokenStorage, getAccessToken } from "../auth/auth.helper";
 import { getNewTokens } from "./helper.api";
 
 const instance = axios.create({
-  baseURL: SERVER_URL,
+  baseURL: API_URL,
   headers: {
     "Content-Type": "application/json",
   },

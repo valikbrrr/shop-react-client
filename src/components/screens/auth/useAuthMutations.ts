@@ -28,12 +28,11 @@ export const useAuthMutations = (reset: UseFormReset<IAuthFormData>) => {
   });
 
   return useMemo(
-    // eslint-disable-next-line react-hooks/preserve-manual-memoization
     () => ({
       loginSync,
       registerSync,
       isLoading: isLoginLoading || isRegisterLoading,
     }),
-    [isLoginLoading, isRegisterLoading]
+    [isLoginLoading, isRegisterLoading, loginSync, registerSync]
   );
 };
