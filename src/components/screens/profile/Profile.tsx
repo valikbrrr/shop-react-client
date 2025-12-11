@@ -10,7 +10,7 @@ const Profile = () => {
   const { profile } = useProfile();
 
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center">
       <Heading isCenter>Profile</Heading>
       <img src={profile?.avatarPath} className="w-40 h-40 rounded-full" />
       <Button

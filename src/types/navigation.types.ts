@@ -5,6 +5,7 @@ export type TypeWebRoutes = {
   Search: undefined
   Explorer: undefined
   Profile: undefined
+  Cart: undefined
 };
 
 export type TypeWebPaths = keyof TypeWebRoutes;
