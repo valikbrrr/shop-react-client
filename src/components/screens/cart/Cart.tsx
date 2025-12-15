@@ -1,7 +1,5 @@
-const Cart = () => {
-  return (
-    <div>Cart</div>
-  )
-}
+const ComponentName = () => {
+  return <div></div>;
+};
 
-export default Cart
+export default ComponentName;

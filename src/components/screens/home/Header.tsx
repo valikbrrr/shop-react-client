@@ -7,9 +7,16 @@ const Header = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div className="flex justify-between items-center gap-2">
-        <p className="text-2xl font-medium">Hello, {profile.name} </p>
-        <Link to="/cart"><img src="./src/assets/icons/cart.png" alt="logo" className="w-6 h-6 mx-auto" color="#374151" /></Link>
+    <div className="flex justify-between items-center">
+      <p className="text-2xl font-medium">Hello, {profile.name} </p>
+      <Link to="/cart">
+        <img
+          src="./src/assets/icons/cart.png"
+          alt="logo"
+          className="w-6 h-6 mx-auto"
+          color="#374151"
+        />
+      </Link>
     </div>
   );
 };

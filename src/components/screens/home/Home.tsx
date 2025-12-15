@@ -1,4 +1,6 @@
 import { useProfile } from "../profile/useProfile";
+import Banner from "./banner/Banner";
+import Categories from "./categories/Categories";
 import Header from "./Header";
 
 export const Home = () => {
@@ -7,8 +9,10 @@ export const Home = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div>  
+    <div>
       <Header />
+      <Banner />
+      <Categories />
     </div>
   );
 };

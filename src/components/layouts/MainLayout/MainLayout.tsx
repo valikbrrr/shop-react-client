@@ -10,7 +10,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <main className="flex-1 pb-20 px-4"> {children}</main>
+      <main className="flex-1 pb-20 p-4"> {children}</main>
 
       {user && <BottomMenu />}
     </div>
