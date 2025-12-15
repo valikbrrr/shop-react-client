@@ -14,7 +14,8 @@ const Categories = () => {
       <Heading>Categories</Heading>
       <div className="flex flex-row flex-wrap justify-center gap-3 mt-5">
         {categories?.map((category) => (
-          <Link key={category.slug} to={`/category/${category.slug}`}>
+          // <Link key={category.slug} to={`/category/${category.slug}`}>
+          <Link key={category.slug} to={`/category`}>
             <button className="rounded-xl bg-gray-100 p-5">
               <img
                 src={`${SERVER_URL}${category.image}`}
