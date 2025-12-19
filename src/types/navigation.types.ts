@@ -9,6 +9,9 @@ export type TypeWebRoutes = {
   Category: {
     slug: string;
   };
+  Product: {
+    slug: string;
+  };
 };
 
 export type TypeWebPaths = keyof TypeWebRoutes;
