@@ -47,12 +47,12 @@ export const routes: IRoute[] = [
   },
   {
     name: "Category",
-    path: "/category",
+    path: "/category/:slug",
     component: Category,
   },
   {
     name: "Product",
-    path: "/product",
+    path: "/product/:slug",
     component: Product,
   },
 ];

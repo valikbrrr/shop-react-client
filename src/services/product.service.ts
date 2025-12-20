@@ -17,7 +17,7 @@ export const ProductService = {
     });
   },
   async getByCategories(categorySlug: string) {
-    return request<IProduct>({
+    return request<IProduct[]>({
       url: getProductsUrl(`/by-category/${categorySlug}`),
       method: "GET",
       data: { categorySlug },
