@@ -1,7 +1,15 @@
-const Explorer = () => {
-  return (
-    <div>Explorer</div>
-  )
-}
+import Loader from "@/components/ui/Loader";
+import { useGetAllProducts } from "./useGetAllProducts";
+import Catalog from "@/components/ui/catalog/Catalog";
 
-export default Explorer
+const Explorer = () => {
+  const { products, isLoading } = useGetAllProducts();
+
+  return isLoading ? (
+    <Loader />
+  ) : (
+    <Catalog title="Explorer" products={products || []} />
+  );
+};
+
+export default Explorer;
