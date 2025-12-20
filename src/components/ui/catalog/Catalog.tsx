@@ -8,7 +8,7 @@ const Catalog: FC<ICatalog> = ({ title, products }) => {
     <div className="mb-16">
       {title && <Heading>{title}</Heading>}
       {products?.length ? (
-        <div className="flex flex-row flex-wrap mt-4">
+        <div className="flex flex-wrap mt-4 justify-start">
           {products.map((product) => (
             <ProductItem key={product.id} product={product} />
           ))}

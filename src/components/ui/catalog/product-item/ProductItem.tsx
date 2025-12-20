@@ -10,7 +10,7 @@ interface IProductItem {
 
 const ProductItem: FC<IProductItem> = ({ product }) => {
   return (
-    <div className="rounded-lg flex-col mb-3.5">
+    <div className="rounded-lg flex-1 mb-3.5 min-w-40 gap-4">
       <Link to={"/product"}>
         <button className="bg-gray-100 rounded-xl relative overflow-hidden p-5 flex items-center justify-center">
           <img
