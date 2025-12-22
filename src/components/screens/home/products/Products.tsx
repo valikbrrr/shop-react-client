@@ -11,7 +11,7 @@ const Products = () => {
     <Loader />
   ) : (
     <div className="flex flex-col mt-5 mb-4">
-      <Heading>Categories</Heading>
+      <Heading>Product</Heading>
       <div className="flex flex-row flex-wrap justify-center gap-3 mt-5">
         {products?.map((product) => (
           <Link key={product.slug} to={`/product/${product.slug}`}>

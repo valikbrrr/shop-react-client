@@ -31,7 +31,7 @@ const Auth = () => {
   };
 
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
+    <div className="flex items-center justify-center h-screen overflow-hidden bg-gray-100">
       <div className="p-6 rounded-lg shadow-lg border border-gray-300 bg-white max-w-sm w-full">
         <p className="text-center text-black text-3xl font-medium mb-8">
           {isReg ? "Sign Up" : "Login"}
@@ -41,7 +41,11 @@ const Auth = () => {
         ) : (
           <form onSubmit={handleSubmit(onSubmit)}>
             <AuthFields control={control} />
-            <Button type="submit" className="w-full" disabled={authMutation.isPending}>
+            <Button
+              type="submit"
+              className="w-full"
+              disabled={authMutation.isPending}
+            >
               {isReg ? "Sign Up" : "Login"}
             </Button>
 

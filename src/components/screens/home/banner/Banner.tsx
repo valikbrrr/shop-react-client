@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div className=" flex w-full mt-5 justify-center flex-row">
-      <div className="flex justify-between items-center bg-[#47AA52] w-[50%] rounded-2xl p-5">
+      <div className="flex justify-between items-center bg-[#47AA52] w-[70%] rounded-2xl p-5">
         <div className="">
           <p className="font-semibold text-white text-3xl">
             Fast delivery - delicious

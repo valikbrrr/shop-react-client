@@ -9,8 +9,10 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const { user } = useAuth();
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
-      <main className="flex-1 pb-20 p-4"> {children}</main>
+    <div className="h-screen bg-gray-50">
+      <main className="h-[calc(100vh-72px)] overflow-y-auto custom-scroll pb-4 px-4 pt-4">
+        {children}
+      </main>
 
       {user && <BottomMenu />}
     </div>

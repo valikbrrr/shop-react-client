@@ -5,3 +5,27 @@
 html {
   scroll-behavior: smooth;
 }
+
+/* Custom vertical scrollbar for main app layout */
+.custom-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #9ca3af #e5e7eb; /* thumb, track */
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: #e5e7eb; /* gray-200 */
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: #9ca3af; /* gray-400 */
+  border-radius: 9999px;
+  border: 2px solid #e5e7eb;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background-color: #6b7280; /* gray-500 */
+}
