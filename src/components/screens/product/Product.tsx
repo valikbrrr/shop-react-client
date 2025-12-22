@@ -2,6 +2,7 @@ import Loader from "@/components/ui/Loader";
 import { useParams } from "react-router-dom";
 import { useProduct } from "./useProduct";
 import { SERVER_URL } from "@/config/api.config";
+import ProductHeader from "./ProductHeader";
 
 const Product = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -12,6 +13,7 @@ const Product = () => {
 
   return (
     <div className="">
+      <ProductHeader product={product} />
       <div className="flex items-center justify-center">
         <img
           src={`${SERVER_URL}${product.image}`}
