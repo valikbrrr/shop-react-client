@@ -1,3 +1,4 @@
+import Button from "@/components/ui/button/Button";
 import type { FC } from "react";
 
 interface IAddToCartButton {
@@ -5,7 +6,7 @@ interface IAddToCartButton {
 }
 
 const AddToCartButton: FC<IAddToCartButton> = ({ productId }) => {
-  return <button className="mt-6">Add To Cart</button>;
+  return <Button className="mt-6">Add To Cart</Button>;
 };
 
 export default AddToCartButton;
