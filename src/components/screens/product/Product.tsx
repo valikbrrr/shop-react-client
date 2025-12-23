@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { useProduct } from "./useProduct";
 import { SERVER_URL } from "@/config/api.config";
 import ProductHeader from "./ProductHeader";
+import ProductInfo from "./product-info/ProductInfo";
+import AddToCartButton from "./product-info/AddToCartButton";
 
 const Product = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -21,6 +23,8 @@ const Product = () => {
           className="w-64 h-64"
         />
       </div>
+      <ProductInfo product={product} />
+      <AddToCartButton productId={product.id} />
     </div>
   );
 };
