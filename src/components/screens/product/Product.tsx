@@ -24,7 +24,7 @@ const Product = () => {
         />
       </div>
       <ProductInfo product={product} />
-      <AddToCartButton productId={product.id} />
+      <AddToCartButton product={product} />
     </div>
   );
 };

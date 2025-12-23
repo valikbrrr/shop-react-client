@@ -17,12 +17,15 @@ export const cartSlice = createSlice({
       const isExist = state.items.some(
         (item) => item.product.id === action.payload.product.id
       );
-      const newId = Date.now();
 
-      if (!isExist) state.items.push({ ...action.payload, id: newId });
+      if (!isExist)
+        state.items.push({
+          ...action.payload,
+          id: state.items.length.toString(),
+        });
     },
-    removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
-      state.items.filter((item) => item.id !== action.payload.id);
+    removeFromCart: (state, action: PayloadAction<{ id: string }>) => {
+      state.items = state.items.filter((item) => item.id !== action.payload.id);
     },
     changeQuantity: (state, action: PayloadAction<IChangeQuantityPayload>) => {
       const { id, type } = action.payload;
