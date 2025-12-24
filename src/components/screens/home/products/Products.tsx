@@ -14,7 +14,7 @@ const Products = () => {
       <Heading>Product</Heading>
       <div className="flex flex-row flex-wrap justify-center gap-3 mt-5">
         {products?.map((product) => (
-          <Link key={product.slug} to={`/product/${product.slug}`}>
+          <Link to={`/product/${product.slug}`}>
             <button className="rounded-xl bg-gray-100 p-5">
               <img
                 src={`${SERVER_URL}${product.image}`}
