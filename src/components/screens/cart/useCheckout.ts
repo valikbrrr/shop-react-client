@@ -1,16 +1,16 @@
 import { useActions } from "@/hooks/useActions";
 import { useCart } from "@/hooks/useCart";
-import { useStripe } from "@/hooks/useStripe";
 import { OrderService } from "@/services/order.service";
 import { useMutation } from "@tanstack/react-query";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { toastAPI } from "@/components/ui/toast/toast-api";
 
 export const useCheckout = () => {
-  const { items } = useCart();
+  const { items, total } = useCart();
   const { reset } = useActions();
-  const navigate = useNavigate();
-  const { confirmPayment } = useStripe();
+
+  const [paymentModalOpen, setPaymentModalOpen] = useState(false);
+  const [clientSecret, setClientSecret] = useState<string | null>(null);
 
   const { mutateAsync: placeOrder, isPending } = useMutation({
     mutationKey: ["place order"],
@@ -28,19 +28,8 @@ export const useCheckout = () => {
     try {
       const { clientSecret } = await placeOrder();
 
-      const { error } = await confirmPayment(
-        clientSecret,
-        `${window.location.origin}/cart?payment=success`
-      );
-
-      if (error) {
-        toastAPI.error(error.message || "Ошибка при обработке платежа");
-        return;
-      }
-
-      reset();
-      toastAPI.success("Заказ успешно оформлен!");
-      navigate("/");
+      setClientSecret(clientSecret);
+      setPaymentModalOpen(true);
     } catch (error) {
       console.error("Checkout error:", error);
       toastAPI.error(
@@ -51,5 +40,20 @@ export const useCheckout = () => {
     }
   };
 
-  return { onCheckout, isPending };
+  const handlePaymentSuccess = () => {
+    reset();
+    setPaymentModalOpen(false);
+    setClientSecret(null);
+    toastAPI.success("Заказ успешно оформлен!");
+  };
+
+  return {
+    onCheckout,
+    isPending,
+    paymentModalOpen,
+    setPaymentModalOpen,
+    clientSecret,
+    total,
+    handlePaymentSuccess,
+  };
 };
