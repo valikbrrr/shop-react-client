@@ -1,33 +1,25 @@
 import Button from "@/components/ui/button/Button";
 import Loader from "@/components/ui/Loader";
-import { useAuth } from "@/hooks/useAuth";
-import { AuthService } from "@/services/auth/auth.service";
-import type { IAuthFormData } from "@/types/auth.interface";
-import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { useForm, type SubmitHandler } from "react-hook-form";
 import AuthFields from "./AuthFields";
+import type { IAuthFormData } from "@/types/auth.interface";
+import { useAuthMutations } from "./useAuthMutations";
 
 const Auth = () => {
   const [isReg, setIsReg] = useState(false);
-  const { setUser } = useAuth();
-
   const { handleSubmit, reset, control } = useForm<IAuthFormData>({
     mode: "onChange",
   });
 
-  const authMutation = useMutation({
-    mutationFn: (data: IAuthFormData) =>
-      AuthService.main(isReg ? "reg" : "login", data.email, data.password),
-    onSuccess(data) {
-      reset();
-      setUser(data.user);
-    },
-  });
+  const { login, register: registerUser, isLoading } = useAuthMutations(reset);
 
   const onSubmit: SubmitHandler<IAuthFormData> = (data) => {
-    console.log(data);
-    authMutation.mutate(data);
+    if (isReg) {
+      registerUser(data);
+    } else {
+      login(data);
+    }
   };
 
   return (
@@ -36,16 +28,12 @@ const Auth = () => {
         <p className="text-center text-black text-3xl font-medium mb-8">
           {isReg ? "Sign Up" : "Login"}
         </p>
-        {authMutation.isPending ? (
+        {isLoading ? (
           <Loader />
         ) : (
           <form onSubmit={handleSubmit(onSubmit)}>
             <AuthFields control={control} />
-            <Button
-              type="submit"
-              className="w-full"
-              disabled={authMutation.isPending}
-            >
+            <Button type="submit" className="w-full" disabled={isLoading}>
               {isReg ? "Sign Up" : "Login"}
             </Button>
 
@@ -57,7 +45,7 @@ const Auth = () => {
                 type="button"
                 onClick={() => setIsReg(!isReg)}
                 className="text-[#47AA52]"
-                disabled={authMutation.isPending}
+                disabled={isLoading}
               >
                 {isReg ? "Login" : "Sign Up"}
               </button>
