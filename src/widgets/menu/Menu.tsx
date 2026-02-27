@@ -1,9 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import { menuItems } from "./menu.data";
-import { MenuItem } from "./MenuItem";
 import { routes } from "@/shared";
+import { MenuItem, menuItems } from "@/entities/menu";
 
-export const BottomMenu = () => {
+export const Menu = () => {
   const location = useLocation();
 
   const getPathByName = (routeName: string) => {

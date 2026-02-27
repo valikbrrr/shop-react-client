@@ -1,8 +1,6 @@
 import { useProfile } from "@/entities/user";
 import { Header } from "./Header";
-import { Banner } from "./banner/Banner";
-import { Categories } from "./categories/Categories";
-import { Products } from "./products/Products";
+import { Categories, Products } from "@/widgets";
 
 export const Home = () => {
   const { profile } = useProfile();
@@ -12,7 +10,6 @@ export const Home = () => {
   return (
     <div>
       <Header />
-      <Banner />
       <Categories />
       <Products />
     </div>

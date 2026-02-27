@@ -8,7 +8,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoute";
-import { MainLayout } from "@/widgets/layout";
+import { MainLayout } from "@/widgets";
 
 export const MainRoutes = () => {
   const { user, isLoading } = useAuth();

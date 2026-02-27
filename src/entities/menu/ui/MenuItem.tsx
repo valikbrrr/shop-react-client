@@ -1,12 +1,15 @@
 import { Icon } from "@/shared/ui";
-import type { IMenuItem } from "./menu.interface";
+import type { IMenuItem } from "../model/menu.interface";
 
 interface MenuItemProps {
   item: IMenuItem;
   isActive?: boolean;
 }
 
-export const MenuItem: React.FC<MenuItemProps> = ({ item, isActive = false }) => {
+export const MenuItem: React.FC<MenuItemProps> = ({
+  item,
+  isActive = false,
+}) => {
   return (
     <div className="flex flex-col items-center justify-center px-2 pt-3 pb-2">
       {/* Иконка с анимацией */}
@@ -28,11 +31,6 @@ export const MenuItem: React.FC<MenuItemProps> = ({ item, isActive = false }) =>
       >
         {item.title}
       </span>
-
-      {/* Индикатор активного состояния */}
-      {isActive && (
-        <div className="w-1 h-1 bg-blue-600 rounded-full mt-0.5"></div>
-      )}
     </div>
   );
 };

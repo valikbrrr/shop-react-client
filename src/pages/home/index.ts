@@ -1,6 +1,5 @@
-export { Banner } from "./banner/Banner";
-export { Categories } from "./categories/Categories";
-export { Products } from "./products/Products";
+export { Categories } from "../../widgets/categories/Categories";
+export { Products } from "../../widgets/products/Products";
 
 export { Header } from "./Header";
 export { Home } from "./Home";
