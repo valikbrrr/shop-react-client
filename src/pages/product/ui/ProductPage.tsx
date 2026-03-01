@@ -1,12 +1,13 @@
 import { useParams } from "react-router-dom";
 import { useProduct } from "../lib/useProduct";
 import { Loader } from "@/shared/ui/loader";
-import { ProductHeader } from "./ProductHeader";
 import { SERVER_URL } from "@/shared/config";
 import { ProductInfo } from "@/entities/product";
-import { AddToCartButton } from "./AddToCartButton";
+import { AddToCartButton } from "@/features";
+import { ProductHeader } from "@/widgets";
 
-export const Product = () => {
+// страница
+export const ProductPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const { product, isLoading } = useProduct(slug || "");
 
@@ -14,7 +15,7 @@ export const Product = () => {
   if (!product) return null;
 
   return (
-    <div className="">
+    <>
       <ProductHeader product={product} />
       <div className="flex items-center justify-center">
         <img
@@ -25,6 +26,6 @@ export const Product = () => {
       </div>
       <ProductInfo product={product} />
       <AddToCartButton product={product} />
-    </div>
+    </>
   );
 };

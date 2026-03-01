@@ -9,3 +9,4 @@ export type { ITokens } from "./token.types";
 export { EnumStorage } from "./token.types";
 export type { ICategory } from "./category.types";
 export type { IOrder } from "./order.interface";
+export type { IProductPage } from "./product-page.types";

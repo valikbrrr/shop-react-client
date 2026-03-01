@@ -1,5 +1,5 @@
 import { Catalog } from "@/entities/product";
-import { useGetProductsByCategory } from "@/features/category-products";
+import { useGetProductsByCategory } from "@/features";
 import { Loader } from "@/shared/ui";
 import { useParams } from "react-router-dom";
 

@@ -1,10 +1,10 @@
 import type { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import leftArrowIcon from "@/shared/assets/icons/left-arrow.png";
-import type { IProductComponent } from "../model/product-page.interface";
-import { FavoriteButton } from "./FavoriteButton";
+import type { IProductPage } from "@/shared";
+import { FavoriteButton } from "@/features";
 
-export const ProductHeader: FC<IProductComponent> = ({ product }) => {
+export const ProductHeader: FC<IProductPage> = ({ product }) => {
   const navigate = useNavigate();
 
   return (

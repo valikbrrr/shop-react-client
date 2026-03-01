@@ -1,10 +1,15 @@
 import type { FC } from "react";
 import type { ICatalog } from "./catalog.interface";
-import { Heading } from "@/shared";
+import { Heading, Loader } from "@/shared";
 import { ProductItem } from "./product-item/ProductItem";
+import { useProducts } from "../../lib/useProducts";
 
-export const Catalog: FC<ICatalog> = ({ title, products }) => {
-  return (
+export const Catalog: FC<ICatalog> = ({ title }) => {
+  const { isLoading, products } = useProducts();
+
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div className="mb-16">
       {title && <Heading>{title}</Heading>}
       {products?.length ? (

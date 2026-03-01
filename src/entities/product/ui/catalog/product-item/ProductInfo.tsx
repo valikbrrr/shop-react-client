@@ -16,3 +16,4 @@ export const ProductInfo: FC<IProductInfo> = ({ product }) => {
     </div>
   );
 };
+ 

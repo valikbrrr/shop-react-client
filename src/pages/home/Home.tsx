@@ -1,6 +1,7 @@
 import { useProfile } from "@/entities/user";
 import { Header } from "./Header";
-import { Categories, Products } from "@/widgets";
+import { Categories } from "@/widgets";
+import { Catalog } from "@/entities";
 
 export const Home = () => {
   const { profile } = useProfile();
@@ -11,7 +12,7 @@ export const Home = () => {
     <div>
       <Header />
       <Categories />
-      <Products />
+      <Catalog products={[]} />
     </div>
   );
 };

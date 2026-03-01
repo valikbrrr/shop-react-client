@@ -1,1 +1,0 @@
-export { useGetProductsByCategory } from './lib/useGetProductsByCategory';
