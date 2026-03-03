@@ -1,6 +1,6 @@
-import { Catalog } from "@/entities/product";
 import { useGetProductsByCategory } from "@/features";
 import { Loader } from "@/shared/ui";
+import { ProductList } from "@/widgets/product-list";
 import { useParams } from "react-router-dom";
 
 export const Category = () => {
@@ -10,6 +10,6 @@ export const Category = () => {
   return isLoading ? (
     <Loader />
   ) : (
-    <Catalog title={slug || "Category"} products={products || []} />
+    <ProductList title={slug || "Category"} products={products || []} />
   );
 };

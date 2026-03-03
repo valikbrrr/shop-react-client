@@ -1,9 +1,9 @@
 import type { FC } from "react";
-import type { ICatalog } from "./catalog.interface";
 import { Heading } from "@/shared";
-import { ProductItem } from "./product-item/ProductItem";
+import type { IProductList } from "../lib/product-list.interface";
+import { ProductItem } from "@/entities/product";
 
-export const Catalog: FC<ICatalog> = ({ title, products }) => {
+export const ProductList: FC<IProductList> = ({ title, products }) => {
   return (
     <div className="mb-16">
       {title && <Heading>{title}</Heading>}

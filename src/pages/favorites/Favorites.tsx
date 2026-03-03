@@ -1,12 +1,12 @@
-import { Catalog } from "@/entities/product";
 import { useProfile } from "@/entities/user";
+import { ProductList } from "@/widgets/product-list";
 
 export const Favorites = () => {
   const { profile } = useProfile();
 
   return (
     <div>
-      <Catalog title="Favorites" products={profile?.favorites || []} />
+      <ProductList title="Favorites" products={profile?.favorites || []} />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import type { IProduct } from "@/shared";
 
-export interface ICatalog {
+export interface IProductList {
   title?: string;
   products: IProduct[];
 }

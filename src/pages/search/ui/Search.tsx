@@ -3,7 +3,7 @@ import { useSearch } from "../lib/useSearch";
 import type { ISearchFormData } from "../model/search.interface";
 import { Field } from "@/shared/ui/field";
 import { Loader } from "@/shared/ui/loader";
-import { Catalog } from "@/entities/product";
+import { ProductList } from "@/widgets/product-list";
 
 export const Search = () => {
   const { searchTerm, isLoading, control, products } = useSearch();
@@ -20,7 +20,7 @@ export const Search = () => {
       </div>
       {searchTerm ? (
         <div className="mt-2">
-          {isLoading ? <Loader /> : <Catalog products={products || []} />}
+          {isLoading ? <Loader /> : <ProductList products={products || []} />}
         </div>
       ) : null}
     </div>

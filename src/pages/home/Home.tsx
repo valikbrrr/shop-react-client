@@ -1,7 +1,7 @@
 import { useProfile } from "@/entities/user";
 import { Header } from "./Header";
-import { Categories } from "@/widgets";
-import { Catalog, useGetAllProducts } from "@/entities/product";
+import { Categories, ProductList } from "@/widgets";
+import { useGetAllProducts } from "@/entities/product";
 
 export const Home = () => {
   const { profile } = useProfile();
@@ -13,7 +13,7 @@ export const Home = () => {
     <div>
       <Header />
       <Categories />
-      <Catalog title="Products" products={products?.slice(0, 6) || []} />
+      <ProductList title="Products" products={products?.slice(0, 6) || []} />
     </div>
   );
 };
