@@ -7,7 +7,7 @@ import { Profile } from "@/pages/profile";
 import { Explorer } from "@/pages/explorer";
 import { Cart } from "@/pages/cart";
 import { Category } from "@/pages/category";
-import { Product } from "@/pages/product";
+import { ProductPage } from "@/pages/product";
 
 export const routes: IRoute[] = [
   {
@@ -53,6 +53,6 @@ export const routes: IRoute[] = [
   {
     name: "Product",
     path: "/product/:slug",
-    component: Product,
+    component: ProductPage,
   },
 ];

@@ -1,13 +1,12 @@
 import { Loader } from "@/shared/ui/loader";
-import { useGetAllProducts } from "../lib/useGetAllProducts";
-import { Catalog } from "@/entities/product";
+import { Catalog, useGetAllProducts } from "@/entities/product";
 
 export const Explorer = () => {
-  const { isLoading } = useGetAllProducts();
+  const { isLoading, products } = useGetAllProducts();
 
   return isLoading ? (
     <Loader />
   ) : (
-    <Catalog title="Explorer" products={[]}/>
+    <Catalog title="Explorer" products={products || []} />
   );
 };

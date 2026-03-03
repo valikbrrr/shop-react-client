@@ -1,6 +1,6 @@
 export { ProductApi } from "./api/product.api";
 
-export { useProducts } from "./lib/useProducts";
+export { useGetAllProducts } from "./lib/useGetAllProducts";
 
 export { ProductInfo } from "./ui/catalog/product-item/ProductInfo";
 export { ProductItem } from "./ui/catalog/product-item/ProductItem";
