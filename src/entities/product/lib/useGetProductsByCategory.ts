@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { ProductApi } from "@/entities/product"; 
+import { ProductApi } from "../api/product.api";
 
 export const useGetProductsByCategory = (categorySlug: string) => {
   const { data: products, isLoading } = useQuery({
