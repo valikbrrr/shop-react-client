@@ -5,9 +5,9 @@ import { Favorites } from "@/pages/favorites";
 import { Search } from "@/pages/search";
 import { Profile } from "@/pages/profile";
 import { Explorer } from "@/pages/explorer";
-import { Cart } from "@/pages/cart";
 import { Category } from "@/pages/category";
 import { ProductPage } from "@/pages/product";
+import { CartPage } from "@/pages/cart";
 
 export const routes: IRoute[] = [
   {
@@ -43,7 +43,7 @@ export const routes: IRoute[] = [
   {
     name: "Cart",
     path: "/cart",
-    component: Cart,
+    component: CartPage,
   },
   {
     name: "Category",

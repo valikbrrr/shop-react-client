@@ -1,13 +1,8 @@
 import type { FC } from "react";
 import { Link } from "react-router-dom";
 import { convertPrice, SERVER_URL, type ICartItem } from "@/shared";
-import { CartActions } from "./CartActions";
 
-interface ICartItemProps {
-  item: ICartItem;
-}
-
-export const CartItem: FC<ICartItemProps> = ({ item }) => {
+export const CartItem: FC<{ item: ICartItem }> = ({ item }) => {
   return (
     <div className="flex-row mt-5">
       <Link to={`/product/${item.product.slug}`}>
@@ -20,7 +15,6 @@ export const CartItem: FC<ICartItemProps> = ({ item }) => {
       <div className="ml-5 mt-2">
         <p className="font-semibold">{item.product.name}</p>
         <p className="mt-1">{convertPrice(item.price)}</p>
-        <CartActions item={item} />
       </div>
     </div>
   );

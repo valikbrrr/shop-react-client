@@ -8,7 +8,7 @@ import {
   Navigate,
 } from "react-router-dom";
 import { ProtectedRoute } from "./ProtectedRoute";
-import { MainLayout } from "@/widgets";
+import { Layout } from "@/widgets";
 
 export const MainRoutes = () => {
   const { user, isLoading } = useAuth();
@@ -33,9 +33,9 @@ export const MainRoutes = () => {
                 )
               ) : (
                 <ProtectedRoute>
-                  <MainLayout>
+                  <Layout>
                     <route.component />
-                  </MainLayout>
+                  </Layout>
                 </ProtectedRoute>
               )
             }

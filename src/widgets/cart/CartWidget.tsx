@@ -1,23 +1,19 @@
 import { useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
-import { useCheckout } from "../lib/useCheckout";
-import { CartItem } from "./cart-item/CartItem";
-import { useCart } from "@/entities/cart";
 import { convertPrice, useActions } from "@/shared/lib";
 import { toastAPI } from "@/shared/ui/toast";
 import { Heading } from "@/shared/ui/heading";
 import { Button } from "@/shared/ui/button";
+import { CartItem, useCart } from "@/entities/cart";
+import { ChangeQuantityButtons, useCheckout } from "@/features/cart";
 
-
-
-export const Cart = () => {
+export const CartWidget = () => {
   const { items, total } = useCart();
   const { onCheckout, isPending } = useCheckout();
   const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
   const { reset } = useActions();
 
-  // Обработка успешного возврата от Stripe
   useEffect(() => {
     const paymentStatus = searchParams.get("payment");
     if (paymentStatus === "success") {
@@ -32,7 +28,12 @@ export const Cart = () => {
     <div>
       <Heading>Cart</Heading>
       {items.length ? (
-        items.map((item) => <CartItem key={item.product.id} item={item} />)
+        items.map((item) => (
+          <div key={item.product.id}>
+            <CartItem item={item} />
+            <ChangeQuantityButtons item={item} />
+          </div>
+        ))
       ) : (
         <p className="mt-2">noooot</p>
       )}

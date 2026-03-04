@@ -1,3 +1,4 @@
+// features/cart/ui/ChangeQuantityButtons.tsx
 import type { FC } from "react";
 import plus from "@/shared/assets/icons/plus.png";
 import minus from "@/shared/assets/icons/minus.png";
@@ -5,11 +6,13 @@ import type { ICartItem } from "@/shared/types";
 import { useActions } from "@/shared/lib";
 import { useCart } from "@/entities/cart";
 
-interface ICartActions {
+interface IChangeQuantityButtonsProps {
   item: ICartItem;
 }
 
-export const CartActions: FC<ICartActions> = ({ item }) => {
+export const ChangeQuantityButtons: FC<IChangeQuantityButtonsProps> = ({
+  item,
+}) => {
   const { changeQuantity } = useActions();
   const { items } = useCart();
   const quantity = items.find((cartItem) => cartItem.id === item.id)?.quantity;
