@@ -1,4 +1,4 @@
-import { useGetProductsByCategory } from "@/features";
+import { useGetProductsByCategory } from "@/entities/product";
 import { Loader } from "@/shared/ui";
 import { ProductList } from "@/widgets/product-list";
 import { useParams } from "react-router-dom";

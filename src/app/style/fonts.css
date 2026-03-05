@@ -1,0 +1,111 @@
+/* Atma Font Family */
+@font-face {
+  font-family: "Atma";
+  src:
+    local("Atma"),
+    url("../../shared/assets/fonts/Atma-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atma";
+  src:
+    local("Atma Light"),
+    url("../../shared/assets/fonts/Atma-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atma";
+  src:
+    local("Atma Medium"),
+    url("../../shared/assets/fonts/Atma-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atma";
+  src:
+    local("Atma SemiBold"),
+    url("../../shared/assets/fonts/Atma-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Atma";
+  src:
+    local("Atma Bold"),
+    url("../../shared/assets/fonts/Atma-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inria Sans Font Family */
+@font-face {
+  font-family: "Inria Sans";
+  src:
+    local("Inria Sans"),
+    url("../../shared/assets/fonts/InriaSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inria Sans";
+  src:
+    local("Inria Sans Italic"),
+    url("../../shared/assets/fonts/InriaSans-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inria Sans";
+  src:
+    local("Inria Sans Light"),
+    url("../../shared/assets/fonts/InriaSans-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inria Sans";
+  src:
+    local("Inria Sans Light Italic"),
+    url("../../shared/assets/fonts/InriaSans-LightItalic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inria Sans";
+  src:
+    local("Inria Sans Bold"),
+    url("../../shared/assets/fonts/InriaSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inria Sans";
+  src:
+    local("Inria Sans Bold Italic"),
+    url("../../shared/assets/fonts/InriaSans-BoldItalic.woff2") format("woff2");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}

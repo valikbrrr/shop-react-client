@@ -1,7 +1,5 @@
 // features/cart/ui/ChangeQuantityButtons.tsx
 import type { FC } from "react";
-import plus from "@/shared/assets/icons/plus.png";
-import minus from "@/shared/assets/icons/minus.png";
 import type { ICartItem } from "@/shared/types";
 import { useActions } from "@/shared/lib";
 import { useCart } from "@/entities/cart";
@@ -23,11 +21,11 @@ export const ChangeQuantityButtons: FC<IChangeQuantityButtonsProps> = ({
         onClick={() => changeQuantity({ id: item.id, type: "minus" })}
         disabled={quantity === 1}
       >
-        <img src={minus} alt="minus" className="w-4" />
+        <img src={"minus"} alt="minus" className="w-4" />
       </button>
       <p>{quantity}</p>
       <button onClick={() => changeQuantity({ id: item.id, type: "plus" })}>
-        <img src={plus} alt="plus" className="w-4" />
+        <img src={"plus"} alt="plus" className="w-4" />
       </button>
     </div>
   );
