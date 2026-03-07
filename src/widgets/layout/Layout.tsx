@@ -1,3 +1,4 @@
+import { Footer } from "./Footer";
 import { Header } from "./Header";
 
 interface LayoutProps {
@@ -9,6 +10,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="h-screen bg-gray-50 overflow-y-auto custom-scroll">
       <Header />
       <main className="h-[100vh]">{children}</main>
+      <Footer />
     </div>
   );
 };

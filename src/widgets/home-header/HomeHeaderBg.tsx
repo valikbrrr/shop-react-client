@@ -1,17 +1,13 @@
-import HomeHeaderImage from "@/shared/assets/icons/HomeHeaderImage.png";
+import HomeHeaderImage from "@/shared/assets/bg/HomeHeaderImage.png";
 
 export const HomeHeaderBg = () => {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full h-screen overflow-hidden">
       <img
         src={HomeHeaderImage}
         alt="Header background"
-        className="w-full h-auto block"
+        className="w-full h-full object-cover"
       />
-
-      <div className="absolute inset-0 flex flex-col items-center justify-center">
-        adfasf
-      </div>
     </div>
   );
 };

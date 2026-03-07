@@ -11,7 +11,7 @@ export const Button: FC<PropsWithChildren<IButton>> = ({
     <button
       className={cn(
         "self-center mt-3.5 bg-[#47AA52] w-full py-3 font-light rounded-lg",
-        className
+        className,
       )}
       {...rest}
     >
