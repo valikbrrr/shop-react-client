@@ -5,4 +5,4 @@ export { default as Bag } from "./bag.svg";
 export { default as Profile } from "./profile.svg";
 export { default as Github } from "./github.svg";
 export { default as Instagram } from "./instagram.svg";
-export { default as telegram } from "./telegram.svg";
+export { default as Telegram } from "./telegram.svg";

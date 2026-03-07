@@ -1,9 +1,9 @@
 import { Bag, ArrowDown, Search, Heart, Profile } from "@/shared/assets/icons";
+import { Link } from "react-router-dom";
 
 export const Header = () => {
   return (
     <div className="fixed top-0 left-0 w-full z-50 px-[20px] py-[15px]">
-      {/* Горизонтальный градиент слева направо как в Figma */}
       <div
         className="absolute inset-0 -z-10"
         style={{
@@ -38,10 +38,18 @@ export const Header = () => {
         </div>
 
         <div className="Right-group flex gap-4 justify-self-end">
-          <img src={Search} alt="search" className="w-8 h-8" />
-          <img src={Heart} alt="heart" className="w-8 h-8" />
-          <img src={Bag} alt="bag" className="w-8 h-8" />
-          <img src={Profile} alt="profile" className="w-8 h-8" />
+          <Link to={`/search`}>
+            <img src={Search} alt="search" className="w-8 h-8" />
+          </Link>
+          <Link to={`/favorites`}>
+            <img src={Heart} alt="heart" className="w-8 h-8" />
+          </Link>
+          <Link to={"/cart"}>
+            <img src={Bag} alt="bag" className="w-8 h-8" />
+          </Link>
+          <Link to={"/profile"}>
+            <img src={Profile} alt="profile" className="w-8 h-8" />
+          </Link>
         </div>
       </div>
     </div>

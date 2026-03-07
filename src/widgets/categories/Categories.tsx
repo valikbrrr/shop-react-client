@@ -10,8 +10,8 @@ export const Categories = () => {
   return isLoading ? (
     <Loader />
   ) : (
-    <div className="flex flex-col mt-5 mb-4">
-      <Heading>Categories</Heading>
+    <div className="flex flex-col text-2xl my-4 px-[20px]">
+      <Heading>Что бы вы хотели?</Heading>
       <div className="flex flex-row flex-wrap justify-center gap-3 mt-5">
         {categories?.map((category) => (
           <Link key={category.slug} to={`/category/${category.slug}`}>
