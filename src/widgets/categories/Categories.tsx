@@ -12,16 +12,14 @@ export const Categories = () => {
   ) : (
     <div className="flex flex-col text-2xl my-4 px-[20px]">
       <Heading>Что бы вы хотели?</Heading>
-      <div className="flex flex-row flex-wrap justify-center gap-3 mt-5">
+      <div className="flex flex-row flex-wrap justify-center gap-10 mt-5">
         {categories?.map((category) => (
           <Link key={category.slug} to={`/category/${category.slug}`}>
-            <button className="rounded-xl bg-gray-100 p-5">
-              <img
-                src={`${SERVER_URL}${category.image}`}
-                alt={category.name}
-                className="w-20 h-20 mb-2 p-3"
-              />
-              <p className="font-normal text-xs text-center">{category.name}</p>
+            <button>
+              <img src={`${SERVER_URL}${category.image}`} alt={category.name} />
+              <p className="font-normal text-xl text-center mt-2">
+                {category.name}
+              </p>
             </button>
           </Link>
         ))}

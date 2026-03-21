@@ -7,6 +7,36 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Сбрасываем все возможные дефолтные стили для изображений */
+img {
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  -webkit-filter: none !important;
+  filter: none !important;
+  outline: none !important;
+  border: none !important;
+  text-shadow: none !important;
+  -webkit-text-shadow: none !important;
+  -moz-text-shadow: none !important;
+}
+
+/* Убираем возможные тени от Tailwind */
+img.shadow-none,
+img.shadow,
+img.shadow-md,
+img.shadow-lg,
+img.shadow-xl,
+img.shadow-2xl,
+img.shadow-inner {
+  box-shadow: none !important;
+}
+
+/* Убираем тени от фреймворков */
+*:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
 @layer utilities {
   .text-shadow-outline-1 {
     text-shadow:

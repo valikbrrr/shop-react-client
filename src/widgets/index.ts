@@ -1,5 +1,5 @@
 export { Categories } from "./categories/Categories";
-export { HomeHeaderBg } from "./home-header/HomeHeaderBg";
+export { Hero } from "./hero/Hero";
 export { Layout } from "./layout/Layout";
 export { Menu } from "./menu/Menu";
 export { ProductHeader } from "./product-header/ProductHeader";
